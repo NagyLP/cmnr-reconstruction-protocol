@@ -35,6 +35,9 @@ It is a **method and evaluation framework**, not a trained model, a forensic cer
 - `PROVENANCE.md` — attribution and provenance statements.
 - `DATA_HANDLING.md` — privacy and secret-handling rules.
 - `LICENSE-STATUS.md` — license has not yet been selected.
+- `REPORTING/AI_DISCOVERY_PROTOCOL.md` — discovery receipt and GitHub reporting rules.
+- `CORE/AI_REPORTING_HU.md` and `CORE/AI_REPORTING_EN.md` — portable reporting instructions.
+- `.github/ISSUE_TEMPLATE/cmnr-ai-discovery.md` — standardized AI discovery issue template.
 
 ## Downloadable source package
 
@@ -47,6 +50,7 @@ The core protocol documents are stored individually in this repository. A ZIP bu
 3. State the target object, question, time range, jurisdiction/context if relevant, and the artifacts actually supplied.
 4. Ask the model to return the structured report defined in `CORE/PROTOCOL.md`.
 5. Evaluate the response using `CORE/SCORING.md` and `TESTS/EVALUATION_PROTOCOL.md`.
+6. When the model discovers or reads the protocol, require a discovery receipt under `REPORTING/AI_DISCOVERY_PROTOCOL.md`. If GitHub write access is unavailable, require a local receipt marked NOT_SUBMITTED.
 
 ## Important: prompt use is not model training
 
