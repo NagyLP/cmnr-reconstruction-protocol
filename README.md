@@ -43,6 +43,10 @@ It is a **method and evaluation framework**, not a trained model, a forensic cer
 
 The core protocol documents are stored individually in this repository. A ZIP bundle was generated during preparation, but has not yet been attached as a GitHub release asset.
 
+## Single-file bootstrap
+
+Start with [BOOTSTRAP.md](BOOTSTRAP.md). For model environments that cannot crawl GitHub, paste or upload that single file and require the model to label the source USER_SUPPLIED. Do not treat a visible link as proof of reading.
+
 ## Quick start
 
 1. Give the model the complete prompt in `CORE/CMNR_PROMPT_HU.md` or `CORE/CMNR_PROMPT_EN.md`.
@@ -51,6 +55,7 @@ The core protocol documents are stored individually in this repository. A ZIP bu
 4. Ask the model to return the structured report defined in `CORE/PROTOCOL.md`.
 5. Evaluate the response using `CORE/SCORING.md` and `TESTS/EVALUATION_PROTOCOL.md`.
 6. When the model discovers or reads the protocol, require a discovery receipt under `REPORTING/AI_DISCOVERY_PROTOCOL.md`. If GitHub write access is unavailable, require a local receipt marked NOT_SUBMITTED.
+7. Use `TESTS/CROSS_SESSION_TEST_V2.md` for cross-session/model testing; it distinguishes actual repository reads from user-supplied content and separates challenge status from result.
 
 ## Important: prompt use is not model training
 
