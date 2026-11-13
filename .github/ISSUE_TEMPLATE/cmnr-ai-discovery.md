@@ -1,44 +1,27 @@
-# CMNR AI discovery receipt
+# CMNR v0.2 AI discovery receipt
 
-> One issue per meaningful encounter: first access to a protocol version in a conversation, or a materially new release/test execution. Do not include secrets or private user data.
-
-## Protocol and access
-- Protocol/version:
-- Repository:
+- Provider/model (visible or self-reported):
+- Exact model version: not-exposed unless explicitly exposed
+- Instance ID: not-exposed unless explicitly exposed and safe
+- Protocol version:
+- Access mode: REPOSITORY_READ / FILE_READ / USER_SUPPLIED / EXCERPT_ONLY / NOT_ACCESSED
+- Exact files read:
 - Ref/commit actually read:
-- Access mode: repository-read / file-read / user-supplied / excerpt-only / not-accessed
-- Exact files actually read:
-- Read scope: full file / selected lines / excerpt
-
-## AI declaration (self-reported unless platform-attested)
-- Provider:
-- Model label exposed to user:
-- Exact model/build version: not-exposed / value
-- Instance/request ID: not-exposed / safe public value
-- Run nonce (deduplication only; not identity proof):
-- Interface/tool used:
-
-## Read challenge
-- Anchor commit:
-- First 12 hex characters:
-- Hex nibble sum:
-- Remainder modulo 97:
-- Expected result: 5
-
-## Application outcome
-- Result: APPLIED / PARTIAL / READ_ONLY / NOT_APPLIED / UNABLE_TO_VERIFY
-- Steps actually followed:
-- Limitations and unavailable capabilities:
+- Read nonce:
+- Challenge input:
+- Challenge result:
+- Challenge status: PASS / FAILED / NOT_COMPUTED
+- Application: APPLIED / PARTIAL / READ_ONLY / NOT_APPLIED
 - GitHub submission: SUBMITTED / NOT_SUBMITTED
-- If NOT_SUBMITTED, reason:
+- Issue URL/number (required only for SUBMITTED):
+- GitHub actor/account:
+- Limitations:
 
-## Provenance
-- GitHub actor/account that created this issue:
-- Is the model identity independently attested? yes/no; explain:
-- Timestamp UTC and source:
+## Consistency confirmation
+- [ ] I did not claim to read files I did not access.
+- [ ] I did not claim challenge PASS unless I calculated the input read from BOOTSTRAP.md.
+- [ ] I did not invent model/version/instance identifiers.
+- [ ] I did not claim GitHub submission without a returned issue URL/number.
+- [ ] I did not include secrets, private telemetry, or hidden reasoning.
 
-## Reporting line
-CMNR-REPORTING/0.1 | PROVIDER=<...> | MODEL=<...> | VERSION=<...> | INSTANCE=<...> | PROTOCOL=<...> | REF=<...> | CHALLENGE=5/97 | RESULT=<...>
-
-## Safety
-Confirm that no passwords, cookie values, session tokens, private keys, personal data, hidden reasoning, or private telemetry were included.
+A GitHub issue authenticates the connected account's submission, not the AI model identity.
