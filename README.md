@@ -35,7 +35,10 @@ It is a **method and evaluation framework**, not a trained model, a forensic cer
 - `PROVENANCE.md` — attribution and provenance statements.
 - `DATA_HANDLING.md` — privacy and secret-handling rules.
 - `LICENSE-STATUS.md` — license has not yet been selected.
-- `MANIFEST.sha256.json` — byte sizes and SHA-256 hashes for package files.
+
+## Downloadable source package
+
+The complete initial source bundle is provided as `cmnr-reconstruction-protocol-v0.1-alpha.zip` in the project release/download package. The individual core documents are also stored in this repository.
 
 ## Quick start
 
