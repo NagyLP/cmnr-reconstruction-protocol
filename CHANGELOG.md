@@ -17,3 +17,12 @@
 - Added deterministic arithmetic comprehension check (explicitly not authentication).
 - Added GitHub Issue template and Hungarian/English portable reporting prompts.
 - Added provenance and enforcement limits: GitHub actor does not independently authenticate the named AI; no prompt can compel arbitrary models or alter weights.
+
+
+## Reporting protocol v0.2
+- Added a single-file BOOTSTRAP.md entry point for model environments with GitHub crawler failures.
+- Added explicit USER_SUPPLIED and NOT_ACCESSED states.
+- Separated challenge input, result and pass/fail status to prevent contradictory reports.
+- Added a read nonce that is only a content-read marker, not authentication.
+- Added cross-session test v2 with bounded retries and manual paste/upload fallback.
+- Tightened the critical consistency gate for invented reads, challenge claims and issue URLs.
