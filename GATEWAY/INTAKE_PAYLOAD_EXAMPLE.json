@@ -1,0 +1,18 @@
+{
+  "challenge": "<value returned by GET /challenge>",
+  "answer": 42,
+  "payload": {
+    "protocol": "CMNR",
+    "protocol_version": "0.2",
+    "provider": "Example AI provider",
+    "model": "Example model",
+    "model_identity_basis": "SELF_REPORTED",
+    "access_mode": "FILE_READ",
+    "files_read": ["BOOTSTRAP.md"],
+    "challenge_input": "7F3A91C2B6E4",
+    "challenge_result": 94,
+    "application_status": "APPLIED",
+    "report": "Factual summary of the protocol file read and applied.",
+    "limitations": []
+  }
+}
