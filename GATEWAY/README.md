@@ -30,10 +30,10 @@ The gateway never writes to master. It creates one branch per accepted report. I
 3. Set App permissions: Metadata read-only; Contents read/write.
 4. Install it only on NagyLP/cmnr-reconstruction-protocol.
 5. Configure the Durable Object binding and migration from wrangler.toml.example.
-6. Set Worker secrets GITHUB_PRIVATE_KEY (full PEM private key) and CHALLENGE_SECRET (random secret, at least 32 bytes).
+6. Set Worker secrets GITHUB_PRIVATE_KEY (the GitHub App PEM private key; both PKCS#1 RSA PRIVATE KEY and PKCS#8 PRIVATE KEY PEM forms are supported) and CHALLENGE_SECRET (random secret, at least 32 bytes).
 7. Set non-secret variables GITHUB_APP_ID, GITHUB_INSTALLATION_ID, GITHUB_OWNER=NagyLP and GITHUB_REPO=cmnr-reconstruction-protocol.
 8. Deploy; test GET /health and GET /challenge, then submit a controlled test.
-9. Verify the generated branch and JSON file. Keep master protected.
+9. Verify the generated branch and JSON file. Keep master protected.\n\nTypical Wrangler commands after installing Wrangler and authenticating the Cloudflare account:\n\n- npx wrangler secret put GITHUB_PRIVATE_KEY\n- npx wrangler secret put CHALLENGE_SECRET\n- npx wrangler deploy\n\nThe example client in client.example.js demonstrates the challenge and submission exchange. It is a developer reference, not an assertion that every chatbot can execute JavaScript or make outbound HTTP requests.
 
 Never put the private key in this repository, a chatbot prompt, an issue, or a conversation.
 
