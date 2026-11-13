@@ -38,7 +38,7 @@ It is a **method and evaluation framework**, not a trained model, a forensic cer
 
 ## Downloadable source package
 
-The complete initial source bundle is provided as `cmnr-reconstruction-protocol-v0.1-alpha.zip` in the project release/download package. The individual core documents are also stored in this repository.
+The core protocol documents are stored individually in this repository. A ZIP bundle was generated during preparation, but has not yet been attached as a GitHub release asset.
 
 ## Quick start
 
