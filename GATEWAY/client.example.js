@@ -1,9 +1,9 @@
-// Example Node.js client for a chatbot/tool that can make HTTP requests.
-// Usage: node client.js https://YOUR-WORKER.workers.dev
-const crypto = require("node:crypto");
-
+// Example HTTP client for a chatbot/tool that can call public HTTPS endpoints.
+// The challenge needs only arithmetic; no GitHub login, API key or code execution
+// by the chatbot is required if it can read the challenge and make the POST call.
+// Usage: node client.example.js https://YOUR-WORKER.workers.dev
 const base = process.argv[2];
-if (!base) throw new Error("Usage: node client.js https://your-worker.example");
+if (!base) throw new Error("Usage: node client.example.js https://your-worker.example");
 
 const payload = {
   protocol: "CMNR",
@@ -16,38 +16,20 @@ const payload = {
   challenge_input: "",
   challenge_result: null,
   application_status: "UNVERIFIED",
-  report: "Replace this example with the factual report produced by the model.",
+  report: "Replace with the factual report produced by the model.",
   limitations: ["Example payload; no repository file was read."]
 };
-
-function leadingZeroBits(hex) {
-  let n = 0;
-  for (const c of hex) {
-    const v = parseInt(c, 16);
-    if (v === 0) n += 4;
-    else { n += Math.clz32(v) - 28; break; }
-  }
-  return n;
-}
 
 async function main() {
   const challengeResponse = await fetch(base + "/challenge");
   if (!challengeResponse.ok) throw new Error("Challenge request failed: " + challengeResponse.status);
-  const { challenge, difficulty } = await challengeResponse.json();
+  const { challenge } = await challengeResponse.json();
   const nonce = challenge.split(".")[1];
-  const payloadHash = crypto.createHash("sha256").update(JSON.stringify(payload)).digest("hex");
-  let counter = 0;
-  for (;;) {
-    const digest = crypto.createHash("sha256")
-      .update(nonce + "." + payloadHash + "." + counter)
-      .digest("hex");
-    if (leadingZeroBits(digest) >= difficulty) break;
-    counter++;
-  }
+  const answer = Array.from(nonce).reduce((sum, digit) => sum + parseInt(digit, 16), 0) % 97;
   const response = await fetch(base + "/submit", {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ challenge, counter: String(counter), payload })
+    body: JSON.stringify({ challenge, answer, payload })
   });
   const result = await response.json();
   console.log(response.status, JSON.stringify(result, null, 2));
