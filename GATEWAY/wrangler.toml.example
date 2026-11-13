@@ -1,0 +1,21 @@
+name = "cmnr-public-intake"
+main = "worker.js"
+compatibility_date = "2026-11-13"
+
+[[durable_objects.bindings]]
+name = "GATEWAY_GUARD"
+class_name = "IntakeGuard"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["IntakeGuard"]
+
+[vars]
+GITHUB_OWNER = "NagyLP"
+GITHUB_REPO = "cmnr-reconstruction-protocol"
+GITHUB_APP_ID = "SET_AFTER_APP_CREATION"
+GITHUB_INSTALLATION_ID = "SET_AFTER_APP_INSTALLATION"
+
+# Set as Worker secrets; NEVER commit:
+# GITHUB_PRIVATE_KEY
+# CHALLENGE_SECRET
