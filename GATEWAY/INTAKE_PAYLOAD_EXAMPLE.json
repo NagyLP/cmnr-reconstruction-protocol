@@ -1,6 +1,6 @@
 {
   "challenge": "<value returned by GET /challenge>",
-  "counter": "<proof-of-work counter>",
+  "answer": 42,
   "payload": {
     "protocol": "CMNR",
     "protocol_version": "0.2",
