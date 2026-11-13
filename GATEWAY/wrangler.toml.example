@@ -6,9 +6,10 @@ compatibility_date = "2026-11-13"
 name = "GATEWAY_GUARD"
 class_name = "IntakeGuard"
 
-[[migrations]]
-tag = "v1"
-new_sqlite_classes = ["IntakeGuard"]
+[exports.IntakeGuard]
+type = "durable_object"
+# SQLite is the required backend for newly created Durable Object namespaces.
+storage = "sqlite"
 
 [vars]
 GITHUB_OWNER = "NagyLP"
